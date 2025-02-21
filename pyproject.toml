@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "krystaliumbackend"
+name = "krystalium-api"
 version = "1.0.0"
 description = "Backend for Krystalium projects"
 authors = ["Arjen Hiemstra <ahiemstra@heimr.nl>"]
