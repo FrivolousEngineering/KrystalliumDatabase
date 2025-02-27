@@ -28,7 +28,7 @@ def create_routes(app):
 
     fastapi_jsonapi.RoutersJSONAPI(
         router = router,
-        path = "/effect",
+        path = "/api/effect",
         tags = ["Effect"],
         class_detail = api.DetailView,
         class_list = api.ListView,
@@ -39,7 +39,7 @@ def create_routes(app):
 
     fastapi_jsonapi.RoutersJSONAPI(
         router = router,
-        path = "/raw",
+        path = "/api/raw",
         tags = ["RawSample"],
         class_detail = api.DetailView,
         class_list = api.ListView,
@@ -50,7 +50,7 @@ def create_routes(app):
 
     fastapi_jsonapi.RoutersJSONAPI(
         router = router,
-        path = "/refined",
+        path = "/api/refined",
         tags = ["RefinedSample"],
         class_detail = api.DetailView,
         class_list = api.ListView,
@@ -61,7 +61,7 @@ def create_routes(app):
 
     fastapi_jsonapi.RoutersJSONAPI(
         router = router,
-        path = "/blood",
+        path = "/api/blood",
         tags = ["BloodSample"],
         class_detail = api.DetailView,
         class_list = api.ListView,
@@ -72,7 +72,7 @@ def create_routes(app):
 
     fastapi_jsonapi.RoutersJSONAPI(
         router = router,
-        path = "/enlisted",
+        path = "/api/enlisted",
         tags = ["Enlisted"],
         class_detail = api.DetailView,
         class_list = api.ListView,
@@ -90,7 +90,7 @@ def root(request):
   <body>
     <h1>Krystallivm</h1>
     <ul>
-      <li><a href="/docs">Documentation</a></li>
+      <li><a href="/api/docs">Documentation</a></li>
       <li><a href="/api/effect">Effects</a></li>
       <li><a href="/api/raw">Raw Samples</a></li>
       <li><a href="/api/refined">Refined Samples</a></li>
@@ -130,7 +130,7 @@ def create_app():
         title = "Krystalium Backend",
         lifespan = lifespan,
         openapi_url = "/openapi.json",
-        docs_url = "/docs",
+        docs_url = "/api/docs",
         debug = True,
     )
 
@@ -141,7 +141,7 @@ def create_app():
     # )
 
     create_routes(app)
-    app.add_route("/", root)
+    app.add_route("/api", root)
     # app.add_route("/login", login)
     # app.add_route("/auth", auth)
     fastapi_jsonapi.init(app)
