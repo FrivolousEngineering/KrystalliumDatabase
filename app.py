@@ -9,7 +9,7 @@ import authlib
 import api
 import database
 import models
-
+import nfc
 
 
 # oauth = authlib.integrations.starlette_client.OAuth(starlette.config.Config())
@@ -142,6 +142,7 @@ def create_app():
 
     create_routes(app)
     app.add_route("/api", root)
+    app.add_route("/api/nfc", nfc.write_nfc, methods = ["POST"])
     # app.add_route("/login", login)
     # app.add_route("/auth", auth)
     fastapi_jsonapi.init(app)
